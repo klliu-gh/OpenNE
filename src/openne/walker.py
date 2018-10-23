@@ -19,8 +19,8 @@ class BasicWalker:
         Simulate a random walk starting from start node.
         '''
         G = self.G
-        look_up_dict = self.look_up_dict
-        node_size = self.node_size
+        look_up_dict = self.look_up_dict#asigned but never used
+        node_size = self.node_size#asigned but never used
 
         walk = [start_node]
 
@@ -79,7 +79,7 @@ class Walker:
             cur = walk[-1]
             cur_nbrs = list(G.neighbors(cur))
             if len(cur_nbrs) > 0:
-                if len(walk) == 1:
+                if len(walk) == 1:#如果没有前一时刻的节点prev，则通过cur的局部结构（带权）决定下一节点nex
                     walk.append(
                         cur_nbrs[alias_draw(alias_nodes[cur][0], alias_nodes[cur][1])])
                 else:
@@ -150,8 +150,8 @@ class Walker:
         alias_edges = {}
         triads = {}
 
-        look_up_dict = self.look_up_dict
-        node_size = self.node_size
+        look_up_dict = self.look_up_dict#never be used
+        node_size = self.node_size#never be used
         for edge in G.edges():
             alias_edges[edge] = self.get_alias_edge(edge[0], edge[1])
 
